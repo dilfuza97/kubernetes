@@ -10,17 +10,6 @@
 
 * This will create a namespace called 'tools' on your cluster. 
 
-
-
-
-
-
-
-
-
-
-
-
 ### nexus-deployment.yml 
 
 ##### Run : kubectl create -f nexus-deployment.yml 
