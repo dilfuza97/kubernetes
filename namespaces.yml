@@ -11,7 +11,17 @@ metadata:
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: stage
+  name: dev
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: students
+---
+apiVersion: v1
+kind: Namespaces
+metadata:
+  name: test
 ---
 apiVersion: v1
 kind: Namespace
