@@ -9,14 +9,12 @@ metadata:
 spec:
   rules:
 
-
   - host: jenkins.fuchicorp.com
     http:
       paths:
       - backend:
           serviceName: jenkins-service
           servicePort: 8080
-
 
   - host: grafana.fuchicorp.com
     http:
@@ -45,4 +43,3 @@ spec:
       - backend:
           serviceName: jira-service
           servicePort: 8084
-
