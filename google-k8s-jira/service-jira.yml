@@ -8,8 +8,8 @@ metadata:
 spec:
   ports:
     - nodePort: 30555
-      port: 80
-      targetPort: 8084
+      port: 8084
+      targetPort: 8080
   selector:
     app: jira
   type: NodePort
