@@ -7,8 +7,9 @@ metadata:
   namespace: tools
 spec:
   ports:
-    - port: 8080
-      targetPort: 8080
+    - nodePort: 30555
+      port: 80
+      targetPort: 8084
   selector:
     app: jira
-  type: LoadBalancer
+  type: NodePort
