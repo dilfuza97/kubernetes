@@ -7,7 +7,6 @@ metadata:
     app: grafana
     component: core
 spec:
-  type: LoadBalancer
   ports:
     - port: 80
   selector:
