@@ -51,6 +51,7 @@ spec:
           persistentVolumeClaim:
             claimName: vault-pvc
 
+
 ---
 apiVersion: v1
 kind: Service
@@ -62,8 +63,8 @@ metadata:
 spec:
   ports:
     - name: vault
-      port: 80
+      port: 8082
       targetPort: 8200
   selector:
     app: vault-deployment
-  type: LoadBalancer
+  type: NodePort
