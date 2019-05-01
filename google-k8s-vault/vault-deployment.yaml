@@ -51,6 +51,7 @@ spec:
           persistentVolumeClaim:
             claimName: vault-pvc
 
+
 ---
 apiVersion: v1
 kind: Service
