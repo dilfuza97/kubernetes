@@ -11,8 +11,6 @@ spec:
     app: grafana
   type: NodePort
   ports:
-    - port: 80
-      targetPort: 8083
     - port: 8083
       targetPort: 8081
       protocol: TCP
