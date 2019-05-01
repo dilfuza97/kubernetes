@@ -7,9 +7,10 @@ metadata:
     app: grafana
     component: core
 spec:
-  type: LoadBalancer
-  ports:
-    - port: 80
   selector:
     app: grafana
-    component: core
+  type: NodePort
+  ports:
+    - port: 8083
+      targetPort: 3000
+      protocol: TCP
