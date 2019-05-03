@@ -72,11 +72,10 @@ metadata:
   namespace: tools
 spec:
   ports:
-  - nodePort: 30618
-    port: 80
+    port: 8080
     protocol: TCP
     targetPort: 8080
   selector:
     app: jenkins
     name: jenkins
-  type: LoadBalancer
+  type: NodePort
