@@ -1,18 +1,21 @@
-Deployment of ingress controller 
+# Deployment of ingress controller 
 
-Ingress allows external users and outside client applications access to HTTP services. Ingress consists of two components: Ingress resource and Ingress controller and it is vital that both pieces are properly configured so that traffic can be routed from an outside client to a Kubernetes Service.
-Ingress resource is a collection of rules for the inbound traffic to reach Services. These are Layer 7 (L7) rules that allow hostnames (and optionally paths) to be directed to specific Services in Kubernetes
-Ingress controller acts upon the rules set by the Ingress Resource, typically via an HTTP or L7 load balancer.
+Ingress allows external users and outside client applications access to HTTP services. Ingress consists of two components: 
+Ingress resource and Ingress controller and it is vital that both pieces are properly configured so that traffic can be routed from an outside client to a Kubernetes Service.
+	Ingress resource is a collection of rules for the inbound traffic to reach Services. These are Layer 7 (L7) rules that allow hostnames (and optionally paths) to be directed to specific Services in Kubernetes
+	Ingress controller acts upon the rules set by the Ingress Resource, typically via an HTTP or L7 load balancer.
 
 Install Helm
-
+```
 curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
-
+```
 chmod 700 get_helm.sh
+```
 ./get_helm.sh
+```
 helm init
 
-Install Tiller
+# Install Tiller
 
 kubectl create serviceaccount --namespace kube-system tiller
 kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
