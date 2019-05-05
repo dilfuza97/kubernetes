@@ -44,10 +44,10 @@ This can be set with an annotation, kubernetes.io/ingress.class, in the metadata
 ```
 annotations: kubernetes.io/ingress.class: nginx
 
-kubectl apply -f ingress-resource.yaml
+kubectl apply -f ingress-resource.yaml -n tools
 ```
 ## Verify that Ingress Resource has been created:
 ```
-kubectl get ingress ingress-resource
+kubectl get ingress ingress-resource -n tools
 ```
 
