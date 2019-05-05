@@ -50,4 +50,4 @@ kubectl apply -f ingress-resource.yaml -n tools
 ```
 kubectl get ingress ingress-resource -n tools
 ```
-Referance: https://www.bogotobogo.com/DevOps/Docker/Docker_Kubernetes_Nginx_Ingress_Controller_GCP_Kubernetes.php
+Reference: https://www.bogotobogo.com/DevOps/Docker/Docker_Kubernetes_Nginx_Ingress_Controller_GCP_Kubernetes.php
