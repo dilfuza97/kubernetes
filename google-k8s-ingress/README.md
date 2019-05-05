@@ -1,9 +1,10 @@
 # Deployment of ingress controller 
-
+It's assumend kubernetes cluster is already up and running in GCP
 Ingress allows external users and outside client applications access to HTTP services. Ingress consists of two components: 
 Ingress resource and Ingress controller and it is vital that both pieces are properly configured so that traffic can be routed from an outside client to a Kubernetes Service.
 	Ingress resource is a collection of rules for the inbound traffic to reach Services. These are Layer 7 (L7) rules that allow hostnames (and optionally paths) to be directed to specific Services in Kubernetes
 	Ingress controller acts upon the rules set by the Ingress Resource, typically via an HTTP or L7 load balancer.
+### It's assumend kubernetes cluster is already up and running in GCP
 
 # Install Helm
 ```
