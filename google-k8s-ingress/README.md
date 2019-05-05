@@ -31,10 +31,10 @@ kubectl get deployments -n kube-system
 helm install --namespace=tools --name nginx-ingress stable/nginx-ingress --set rbac.create=true 
 ```
 ## Confirm that the nginx-ingress-controller Service has been deployed and that we have an external IP address associated with the service by running the following command:
-
+```
 kubectl get service nginx-ingress-controller -n tools
 ```
-# Configure Ingress Resource
+## Configure Ingress Resource
 
 An Ingress Resource object is a collection of L7 rules for routing inbound traffic to Kubernetes Services. Multiple rules can be defined in one Ingress Resource or they can be split up into multiple Ingress Resource manifests.
 
