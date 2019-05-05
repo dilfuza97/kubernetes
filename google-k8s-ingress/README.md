@@ -26,12 +26,12 @@ We can see if tiller is running by checking for the tiller_deploy
 ```
 kubectl get deployments -n kube-system
 ```
-# Deploying an NGINX Ingress Controller via Helm on our namespace 'tools'
+## Deploying an NGINX Ingress Controller via Helm on our namespace 'tools'
 ```
 helm install --namespace=tools --name nginx-ingress stable/nginx-ingress --set rbac.create=true 
-
-## Confirm that the nginx-ingress-controller Service has been deployed and that we have an external IP address associated with the service by running the following command:
 ```
+## Confirm that the nginx-ingress-controller Service has been deployed and that we have an external IP address associated with the service by running the following command:
+
 kubectl get service nginx-ingress-controller -n tools
 ```
 # Configure Ingress Resource
