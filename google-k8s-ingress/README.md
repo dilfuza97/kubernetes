@@ -51,4 +51,10 @@ kubectl apply -f ingress-resource.yaml -n tools
 ```
 kubectl get ingress ingress-resource -n tools
 ```
+## To delete
+```
+helm list
+helm ls --all nginx-ingress
+helm del --purge nginx-ingress
+```
 Reference: https://www.bogotobogo.com/DevOps/Docker/Docker_Kubernetes_Nginx_Ingress_Controller_GCP_Kubernetes.php
