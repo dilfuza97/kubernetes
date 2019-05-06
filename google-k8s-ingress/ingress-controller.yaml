@@ -101,6 +101,7 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: nginx-ingress
+    namespace: tools
 ---
 ##  Role
 apiVersion: rbac.authorization.k8s.io/v1beta1
@@ -201,6 +202,7 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: nginx-ingress
+    namespace: tools
 ---
 ##  Service Controller
 apiVersion: v1
@@ -266,7 +268,7 @@ metadata:
     heritage: Tiller
     release: nginx-ingress
   name: nginx-ingress-controller
-  namespace: tools
+  namespace: tools  #this was added
 spec:
   replicas: 1
   revisionHistoryLimit: 10
@@ -353,7 +355,7 @@ metadata:
     heritage: Tiller
     release: nginx-ingress
   name: nginx-ingress-default-backend
-  namespace: tools
+  namespace: tools  #this was added
 spec:
   replicas: 1
   revisionHistoryLimit: 10
