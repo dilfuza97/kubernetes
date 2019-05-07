@@ -9,8 +9,7 @@ metadata:
     heritage: Tiller
     release: nginx-ingress
   name: nginx-ingress-controller
-  namespace: tools
-data:
+ data:
   enable-vts-status: "false"
 ---
 ## ServiceAccount
@@ -23,7 +22,6 @@ metadata:
     heritage: Tiller
     release: nginx-ingress
   name: nginx-ingress
-  namespace: tools
 ---
 ##  ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1beta1
@@ -243,7 +241,6 @@ metadata:
     heritage: Tiller
     release: nginx-ingress
   name: nginx-ingress-default-backend
-  namespace: tools
 spec:
   clusterIP: ""
   ports:
@@ -355,8 +352,7 @@ metadata:
     heritage: Tiller
     release: nginx-ingress
   name: nginx-ingress-default-backend
-  namespace: tools  #this was added
-spec:
+  spec:
   replicas: 1
   revisionHistoryLimit: 10
   template:
