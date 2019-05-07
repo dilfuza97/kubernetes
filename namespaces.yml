@@ -19,7 +19,7 @@ metadata:
   name: students
 ---
 apiVersion: v1
-kind: Namespaces
+kind: Namespace
 metadata:
   name: test
 ---
