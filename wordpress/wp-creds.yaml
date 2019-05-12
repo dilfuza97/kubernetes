@@ -3,7 +3,7 @@ kind: Secret
 metadata:
   name: wp-creds
 data:
-  WORDPRESS_DB_USER: a3VrdQ==     #kuku
+  WORDPRESS_DB_USER: ZnVjaGljb3JwCg==     #fuchicorp
   WORDPRESS_DB_PASSWORD: cmVkaGF0MQ==   #redhat
   WORDPRESS_DB_NAME: d29yZHByZXNz   #wordpress
   WORDPRESS_DB_HOST: bG9jYWxob3N0   #localhost
