@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: fscoding
+  name: fscoding-mysql
+  labels:
+    app: fscoding
+spec:
+  selector:
+    matchLabels:
+      app: fscoding
+      tier: mysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: fscoding
+        tier: mysql
+    spec:
+      containers:
+      - image: fsadykov/centos_mysql
+        name: mysql
+        env:
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-creds
+              key: MYSQL_ROOT_PASSWORD
+
+        - name: MYSQL_USER
+          value: fscoding
+
+        - name: MYSQL_DATABASE
+          value: fscoding
+        ports:
+        - containerPort: 3306
+          name: mysql

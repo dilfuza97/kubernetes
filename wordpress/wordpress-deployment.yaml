@@ -1,0 +1,65 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress
+  labels:
+    app: wordpress
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: wordpress
+    tier: frontend
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: wp-lv-claim
+  labels:
+    app: wordpress
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: wordpress
+  labels:
+    app: wordpress
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: wordpress
+        tier: frontend
+    spec:
+      containers:
+        - image: wordpress:5.1.1-php7.1-apache
+          name: wordpress
+          env:
+          - name: WORDPRESS_DB_HOST
+            value: fscoding-mysql
+          - name: WORDPRESS_DB_USER
+            value: fscoding
+          - name: WORDPRESS_DB_PASSWORD
+            value: MYSQL_ROOT_PASSWORD
+          - name: WORDPRESS_DB_NAME
+            value: fscoding
+          ports:
+            - containerPort: 80
+              name: wordpress
+          volumeMounts:
+            - name: wordpress-local-storage
+              mountPath: /var/www/html
+      volumes:
+        - name: wordpress-local-storage
+          persistentVolumeClaim:
+            claimName: wp-lv-claim
