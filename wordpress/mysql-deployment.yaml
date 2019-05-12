@@ -1,21 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: fscoding
-  name: fscoding-mysql
+  name: fuchicorp-mysql
   labels:
-    app: fscoding
+    app: fuchicorp
 spec:
   selector:
     matchLabels:
-      app: fscoding
+      app: fuchicorp
       tier: mysql
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: fscoding
+        app: fuchicorp
         tier: mysql
     spec:
       containers:
@@ -29,10 +28,10 @@ spec:
               key: MYSQL_ROOT_PASSWORD
 
         - name: MYSQL_USER
-          value: fscoding
+          value: fuchicorp
 
         - name: MYSQL_DATABASE
-          value: fscoding
+          value: fuchicorp
         ports:
         - containerPort: 3306
           name: mysql
