@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: fscoding-mysql
+  name: fuchicorp-mysql
   labels:
-    app: fscoding
+    app: fuchicorp
 spec:
   ports:
     - port: 3306
   selector:
-    app: fscoding
+    app: fuchicorp
     tier: mysql
   clusterIP: None

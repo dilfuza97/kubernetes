@@ -46,13 +46,13 @@ spec:
           name: wordpress
           env:
           - name: WORDPRESS_DB_HOST
-            value: fscoding-mysql
+            value: fuchicorp-mysql
           - name: WORDPRESS_DB_USER
-            value: fscoding
+            value: fuchicorp
           - name: WORDPRESS_DB_PASSWORD
             value: MYSQL_ROOT_PASSWORD
           - name: WORDPRESS_DB_NAME
-            value: fscoding
+            value: fuchicorp
           ports:
             - containerPort: 80
               name: wordpress
