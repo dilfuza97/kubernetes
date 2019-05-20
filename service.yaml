@@ -39,7 +39,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: fuchicorp-api
-  namespace: default
+  namespace: tool
 
 
 ---
