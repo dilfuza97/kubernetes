@@ -1,45 +1,56 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: fuchicorp-apps
   annotations:
+    certmanager.k8s.io/cluster-issuer: letsencrypt-fuchicorp-prod
     kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
-
+    kubernetes.io/tls-acme: “true”
+  name: fuchicorp-ingress
+  namespace: tools
 spec:
   rules:
-
-  - host: jenkins.fuchicorp.com
-    http:
-      paths:
-      - backend:
-          serviceName: jenkins-service
-          servicePort: 8080
-
   - host: grafana.fuchicorp.com
     http:
       paths:
       - backend:
           serviceName: grafana-service
-          servicePort: 8081
-
-  - host: vault.fuchicorp.com
+          servicePort: 8080
+  - host: jenkins.fuchicorp.com
     http:
       paths:
       - backend:
-          serviceName: vault-service
+          serviceName: jenkins-service
+          servicePort: 8081
+  - host: jira.fuchicorp.com
+    http:
+      paths:
+      - backend:
+          serviceName: jira-service
           servicePort: 8082
-
   - host: nexus.fuchicorp.com
     http:
       paths:
       - backend:
           serviceName: nexus-service
           servicePort: 8083
-
-  - host: jira.fuchicorp.com
+  - host: vault.fuchicorp.com
     http:
       paths:
       - backend:
-          serviceName: jira-service
+          serviceName: vault-service
           servicePort: 8084
+  - host: fuchicorp.com
+    http:
+      paths:
+      - backend:
+          serviceName: wordpress-tools
+          servicePort: 80
+  tls:
+  - hosts:
+    - jenkins.fuchicorp.com
+    - jira.fuchicorp.com
+    - vault.fuchicorp.com
+    - nexus.fuchicorp.com
+    - grafana.fuchicorp.com
+    - fuchicorp.com
+    secretName: tls-prod-cert
